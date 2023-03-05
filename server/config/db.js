@@ -1,4 +1,4 @@
 module.exports = {
   //MongoDB Atlas deployment ->
-  "URI": env.process.DB_URI
+  "URI": process.env.DB_URI
 };
