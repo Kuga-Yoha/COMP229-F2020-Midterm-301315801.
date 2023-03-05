@@ -49,7 +49,7 @@ router.post('/add', (req, res, next) => {
       if(err){
         res.end(err);
       }else{
-        res.redirect("/");
+        res.redirect("/books");
       }
     });
 
@@ -75,9 +75,24 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+    let _book = book({
+      Title: req.body.title,
+      Description: req.body.description,
+      Price: req.body.price,
+      Author: req.body.author,
+     Genre: req.body.genre
+    });
+
+    book.updateOne({_id:req.params.id},{$set:_book},(err, Book)=>{
+
+      if(err){
+        res.end(err);
+      }else{
+        res.redirect('/books');
+      }
+
+
+    });
 
 });
 
