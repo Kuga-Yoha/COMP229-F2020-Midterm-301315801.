@@ -28,7 +28,7 @@ router.get('/add', (req, res, next) => {
   
   res.render('books/details',{
     title: "Add Book",
-    book: {}
+    books: {}
   });
 
 });
@@ -60,13 +60,15 @@ router.post('/add', (req, res, next) => {
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
 
-    book.findById(req.params.id,(err, Book)=>{
+    let id = req.params.id;
+
+    book.findById(id,(err, Book)=>{
       if(err){
         res.end(err);
       }else{
         res.render('books/details',{
           title: "Edit Book",
-          book: Book
+          books: Book
         });
       }
     })
