@@ -1,3 +1,9 @@
+/*
+COMP229-F2020-MidTerm-
+Kugavathanan Yohanathan
+301315801
+MyFavouriteBooks
+*/
 let mongoose = require('mongoose');
 
 // create a model class

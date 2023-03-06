@@ -1,3 +1,10 @@
+/*
+COMP229-F2020-MidTerm-
+Kugavathanan Yohanathan
+301315801
+MyFavouriteBooks
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();

@@ -1,7 +1,14 @@
+/*
+COMP229-F2020-MidTerm-
+Kugavathanan Yohanathan
+301315801
+MyFavouriteBooks
+*/
 // modules required for routing
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+//const books = require('../models/books');
 
 // define the book model
 let book = require('../models/books');
@@ -77,28 +84,27 @@ router.get('/:id', (req, res, next) => {
 });
 
 // POST - process the information passed from the details form and update the document
-router.post('/:id', (req, res, next) => {
-
+router.post('/:id',(req,res,next)=>{
   let id = req.params.id;
-  let _book = {
+
+  let updatedBook = {
+   _id :id,
     Title: req.body.title,
     Description: req.body.description,
     Price: req.body.price,
     Author: req.body.author,
-    Genre: req.body.genre
+    Genre: req.body.genre,
   };
-
-  book.updateOne({_id:id},{$set:_book},(err, Book)=>{
-
+  Contact.updateOne({_id:req.params.id},{$set:updatedBook},(err, contact)=>{
     if(err){
-      res.end(err);
+         //console.error(err);
+         res.end(err); 
+        //  res.redirect('/error');
     }else{
-      res.redirect('/books');
+        res.redirect("/books");
     }
-
-  });
-
-
+});
+  
 });
 
 // GET - process the delete by user id
