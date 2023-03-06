@@ -95,7 +95,7 @@ router.post('/:id',(req,res,next)=>{
     Author: req.body.author,
     Genre: req.body.genre,
   };
-  Contact.updateOne({_id:req.params.id},{$set:updatedBook},(err, contact)=>{
+  book.updateOne({_id:req.params.id},updatedBook,(err, contact)=>{
     if(err){
          //console.error(err);
          res.end(err); 
